@@ -1,5 +1,5 @@
 '''
-First Python GUI try with Tkinter 
+First Python GUI try with Tkinter
 @Jehad Oumer  https://github.com/JehadOumer
 '''
 
@@ -29,8 +29,9 @@ def redo(event=None):
     return 'break'
 def cut():
     text_area.event_generate("<<Cut>>")
-def select_all():
+def select_all(event=None):
     text_area.tag_add(SEL,"1.0", END)
+    return 'break'
 
 def find():
     find=Toplevel(root)
@@ -291,6 +292,8 @@ text_area.bind('<Control-s>',save)
 text_area.bind('<Control-O>',open_file)
 text_area.bind('<Control-o>',open_file)
 text_area.bind("<Any-KeyPress>",update_line_num)
+text_area.bind("<Control-A>",select_all)
+text_area.bind("<Control-a>",select_all)
 right_cmenu.bind("<FocusOut>",rightc_menu_focusout)
 text_area.bind("<Button-3>",rightc_menu)
 
